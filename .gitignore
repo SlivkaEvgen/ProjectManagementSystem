@@ -1,0 +1,4 @@
+# Project exclude paths
+/target/!/src/main/java/org/example/jdbc/controller/StringNames.java
+/.idea/
+/.checkmate/
