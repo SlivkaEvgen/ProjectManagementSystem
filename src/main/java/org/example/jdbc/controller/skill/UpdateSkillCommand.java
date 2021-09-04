@@ -4,70 +4,67 @@ import org.example.jdbc.config.ScannerConsole;
 import org.example.jdbc.utils.Validator;
 import org.example.jdbc.controller.interfaces.Controller;
 import org.example.jdbc.service.SkillServiceImpl;
+
 import java.util.Scanner;
 
 public class UpdateSkillCommand implements Controller {
 
-  private final SkillServiceImpl skillService = new SkillServiceImpl();
-  private final Scanner scanner = ScannerConsole.getInstance();
+    private final SkillServiceImpl SKILL_SERVICE = new SkillServiceImpl();
+    private final Scanner scanner = ScannerConsole.getInstance();
 
-  private void update() {
-    String id = enterId();
-    String activity = enterActivity();
-    String level = enterLevel();
-    skillService.update(Long.valueOf(id), activity, level);
-    System.out.println(
-        " ✅ You updated \uD83D\uDC49 " + skillService.getById(Long.valueOf(id)).get() + "\n");
-  }
-
-  private String enterId() {
-    System.out.print(" ENTER ID \n\uD83D\uDC49 ");
-    String id = scanner.next();
-    if (!Validator.validNumber(id)
-        || skillService.getById(Long.valueOf(id)).get().getId() == null) {
-      System.out.println("Try again");
-      return enterId();
+    private void update() {
+        final String id = enterId();
+        final String activity = enterActivity();
+        final String level = enterLevel();
+        SKILL_SERVICE.update(Long.valueOf(id), activity, level);
+        System.out.println(" ✅ You updated \uD83D\uDC49 " + SKILL_SERVICE.getById(Long.valueOf(id)).get() + "\n");
     }
-    return id;
-  }
 
-  private String enterActivity() {
-    System.out.print(" ENTER ACTIVITY \n\uD83D\uDC49 ");
-    System.out.println(" Example: Java, C++, JS, C# ");
-    String activity = scanner.next();
-    if (!Validator.validString(activity)
-        | !activity.equalsIgnoreCase("java")
-            & !activity.equalsIgnoreCase("js")
-            & !activity.equalsIgnoreCase("c++")
-            & !activity.equalsIgnoreCase("c#")) {
-      System.out.println("Try again");
-      return enterActivity();
+    private String enterId() {
+        System.out.print(" ENTER ID \n\uD83D\uDC49 ");
+        String id = scanner.next();
+        if (!Validator.validNumber(id) || SKILL_SERVICE.getById(Long.valueOf(id)).get().getId() == null) {
+            System.out.println("Try again");
+            return enterId();
+        }
+        return id;
     }
-    return activity;
-  }
 
-  private String enterLevel() {
-    System.out.print(" ENTER LEVEL \n\uD83D\uDC49 ");
-    System.out.println(" Example: Junior, Middle, Senior");
-    String level = scanner.next();
-    if (!Validator.validString(level)
-        | !level.equalsIgnoreCase("junior")
-            & !level.equalsIgnoreCase("middle")
-            & !level.equalsIgnoreCase("senior")) {
-      System.out.println("Try again");
-      return enterLevel();
+    private String enterActivity() {
+        System.out.print(" ENTER ACTIVITY \n\uD83D\uDC49 ");
+        System.out.println(" Example: Java, C++, JS, C# ");
+        String activity = scanner.next();
+        if (!Validator.validString(activity) | !activity.equalsIgnoreCase("java")
+                                               & !activity.equalsIgnoreCase("js")
+                                               & !activity.equalsIgnoreCase("c++")
+                                               & !activity.equalsIgnoreCase("c#")) {
+            System.out.println("Try again");
+            return enterActivity();
+        }
+        return activity;
     }
-    return level;
-  }
 
-  @Override
-  public void start() {
-    update();
-  }
+    private String enterLevel() {
+        System.out.print(" ENTER LEVEL \n\uD83D\uDC49 ");
+        System.out.println(" Example: Junior, Middle, Senior");
+        String level = scanner.next();
+        if (!Validator.validString(level) | !level.equalsIgnoreCase("junior")
+                                            & !level.equalsIgnoreCase("middle")
+                                            & !level.equalsIgnoreCase("senior")) {
+            System.out.println("Try again");
+            return enterLevel();
+        }
+        return level;
+    }
 
-  @Override
-  public void close() {
-    System.exit(0);
-    scanner.close();
-  }
+    @Override
+    public void start() {
+        update();
+    }
+
+    @Override
+    public void close() {
+        System.exit(0);
+        scanner.close();
+    }
 }

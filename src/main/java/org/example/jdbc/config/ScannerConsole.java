@@ -5,21 +5,21 @@ import java.util.Scanner;
 
 public class ScannerConsole implements Closeable {
 
-  private static Scanner SCANNER;
+    private static Scanner scanner;
 
-  public static Scanner getInstance() {
-    if (SCANNER == null) {
-      synchronized (ScannerConsole.class) {
-        if (SCANNER == null) {
-          SCANNER = new Scanner(System.in);
+    public static Scanner getInstance() {
+        if (scanner == null) {
+            synchronized (ScannerConsole.class) {
+                if (scanner == null) {
+                    scanner = new Scanner(System.in);
+                }
+            }
         }
-      }
+        return scanner;
     }
-    return SCANNER;
-  }
 
-  @Override
-  public void close() {
-    SCANNER.close();
-  }
+    @Override
+    public void close() {
+        scanner.close();
+    }
 }

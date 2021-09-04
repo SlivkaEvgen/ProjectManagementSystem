@@ -4,8 +4,8 @@ import org.example.jdbc.controller.CommandImpl;
 
 public class Main {
 
-  public static void main(String[] args) {
+    public static void main(String[] args) {
 
-    new CommandImpl().start();
-  }
+        new CommandImpl().start();
+    }
 }

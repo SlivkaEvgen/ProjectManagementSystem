@@ -1,14 +1,12 @@
 package org.example.jdbc.controller.interfaces;
 
-import java.sql.SQLIntegrityConstraintViolationException;
-
 public interface Command extends Controller {
 
-  void getCommand();
+    void getCommand();
 
-  void createCommand() throws SQLIntegrityConstraintViolationException;
+    void createCommand();
 
-  void updateCommand() throws SQLIntegrityConstraintViolationException;
+    void updateCommand();
 
-  void deleteCommand();
+    void deleteCommand();
 }
