@@ -5,9 +5,9 @@ import java.util.Optional;
 
 public interface IService<T, ID> {
 
-  Optional<T> getById(ID id);
+    Optional<T> getById(ID id);
 
-  List<T> getAll();
+    List<T> getAll();
 
-  void delete(ID id);
+    void delete(ID id);
 }
