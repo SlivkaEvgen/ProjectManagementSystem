@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 @Data
@@ -12,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Customer implements Serializable, BaseModel<Long> {
 
-  private static final long serialVersionUID = 1928374651928374651L;
+    private static final long serialVersionUID = 1928374651928374651L;
 
-  private Long id,budget,companyId;
-  private String name;
+    private Long id, budget, companyId;
+    private String name;
 }

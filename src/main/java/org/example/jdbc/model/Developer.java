@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import java.io.Serializable;
 
 @Data
@@ -12,8 +13,8 @@ import java.io.Serializable;
 @NoArgsConstructor
 public class Developer implements BaseModel<Long>, Serializable {
 
-  private static final long serialVersionUID = 1928374651988374656L;
+    private static final long serialVersionUID = 1928374651988374656L;
 
-  private Long id,age,numberPhone,companyId,salary;
-  private String name,gender,email;
+    private Long id, age, numberPhone, companyId, salary;
+    private String name, gender, email;
 }
