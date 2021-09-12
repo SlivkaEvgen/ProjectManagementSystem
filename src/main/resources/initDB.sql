@@ -1,4 +1,4 @@
-﻿USE MySqlGoItHomeWork;
+﻿USE jdbs;
 
 CREATE TABLE IF NOT EXISTS companies
 (

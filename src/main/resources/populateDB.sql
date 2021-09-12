@@ -1,4 +1,4 @@
-USE MySqlGoItHomeWork;
+USE jdbs;
 
 INSERT INTO companies(id,name)
 VALUES (1,'GoIT'),
