@@ -2,3 +2,5 @@
 /target/!/src/main/java/org/example/jdbc/controller/StringNames.java
 /.idea/
 /.checkmate/
+src/main/resources/scripts/original/scripts2/
+src/main/resources/scripts/original/
